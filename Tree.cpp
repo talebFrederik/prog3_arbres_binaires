@@ -73,4 +73,20 @@ void Tree::bfs()
 
 void Tree::dfs()
 {
+	std::stack<int> stack{};
+	stack.push(0);
+	while (!stack.empty())
+	{
+		int nodeIndex = stack.top();
+		std::cout << m_data[nodeIndex] << " ";
+		stack.pop();
+		if (right(nodeIndex) < m_capacity && m_data[right(nodeIndex)] >= 0)
+		{
+			stack.push(right(nodeIndex));
+		}
+		if (left(nodeIndex) < m_capacity && m_data[left(nodeIndex)] >= 0)
+		{
+			stack.push(left(nodeIndex));
+		}
+	}
 }
