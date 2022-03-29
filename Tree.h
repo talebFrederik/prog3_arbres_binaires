@@ -12,7 +12,7 @@
 
 class Tree
 {
-private:
+protected:
 	int* m_data;
 	int m_size;
 	int m_capacity;
@@ -72,6 +72,5 @@ public:
 	* Parcours en profondeur
 	*/
 	void dfs();
-
 };
 

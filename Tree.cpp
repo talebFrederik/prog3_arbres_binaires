@@ -2,6 +2,7 @@
 #include <iostream>
 #include <stack>
 #include <deque>
+#include <stdexcept>
 
 int Tree::left(int index)
 {
@@ -18,16 +19,16 @@ int Tree::parent(int index)
 	return 0;
 }
 
-Tree::Tree(int capacity) : m_capacity{capacity}, m_size{0}
+Tree::Tree(int capacity) : m_capacity{ capacity }, m_size{ 0 }
 {
 	m_data = new int[capacity];
 	for (int i = 0; i < m_capacity; i++)
 	{
-		m_data[i] = -1;
+		m_data[i] = INT_MIN;
 	}
 }
 
-Tree::Tree(int* tab, int capacity, int size) : m_capacity{capacity}, m_size{size}
+Tree::Tree(int* tab, int capacity, int size) : m_capacity{ capacity }, m_size{ size }
 {
 	m_data = new int[capacity];
 	for (int i = 0; i < size; i++)
@@ -36,7 +37,7 @@ Tree::Tree(int* tab, int capacity, int size) : m_capacity{capacity}, m_size{size
 	}
 	for (int i = size; i < m_capacity; i++)
 	{
-		m_data[i] = -1;
+		m_data[i] = INT_MIN;
 	}
 }
 
@@ -57,7 +58,7 @@ void Tree::bfs()
 	queue.push_back(0);
 	while (!queue.empty())
 	{
-		if (left(queue.front()) < m_capacity && m_data[left(queue.front())] >=0)
+		if (left(queue.front()) < m_capacity && m_data[left(queue.front())] >= 0)
 		{
 			queue.push_back(left(queue.front()));
 		}
