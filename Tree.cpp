@@ -2,7 +2,6 @@
 #include <iostream>
 #include <stack>
 #include <deque>
-#include <stdexcept>
 
 int Tree::left(int index)
 {
@@ -16,7 +15,7 @@ int Tree::right(int index)
 
 int Tree::parent(int index)
 {
-	return 0;
+	return (index - 1) / 2 ;
 }
 
 Tree::Tree(int capacity) : m_capacity{ capacity }, m_size{ 0 }
